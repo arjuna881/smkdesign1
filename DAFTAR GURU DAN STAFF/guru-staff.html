@@ -1,0 +1,360 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script src="https://unpkg.com/feather-icons"></script>
+     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+       <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+  </head>
+  <body class="bg-gray-300">
+   <header class="">    
+    <section class="pt-120 bg-emerald-800 relative w-full">
+     <aside class="absolute left-0 top-96 bg-emerald-800 w-full lg:w-auto px-4 py-4 overflow-x-hidden sm:overflow-x-visible">
+  <div class="flex flex-col lg:flex-row gap-4 lg:gap-20 text-base lg:text-xl whitespace-nowrap">
+    
+    <a href="../index.html" class="text-white hover:text-blue-300">BERANDA</a>
+
+    <h1 id="selectIcon" onclick="tampilkanLink(this)" data-target="selector-profil"
+        class="relative text-white cursor-pointer hover:text-blue-300">
+      PROFIL
+      <div id="selector-profil"
+           class="z-500 absolute sm:top-10 top-16 bg-black text-white rounded-md px-4 py-2 flex flex-col gap-2 z-50 opacity-0 invisible transition duration-300 ease-out">
+           <a href="sejarah.html"  class="hover:text-blue-400">Sejarah Singkat</a>
+           <a href="visimisi.html"  class="hover:text-blue-400">VisiMisi</a>
+           <a href="akutansi.html"  class="hover:text-blue-400">Akutansi</a>
+           <a href="multimedia.html"  class="hover:text-blue-400">MultiMedia</a>
+           <a href="pemasaran.html"  class="hover:text-blue-400">Pemasaran</a>
+           <a href="perkantoran.html"  class="hover:text-blue-400">Perkantoran</a>
+           <a href="perwisataan.html"  class="hover:text-blue-400">Usaha Perjalanan Wisata</a>
+      </div>
+    </h1>
+
+    <h1 id="kurikulumIcon" onclick="tampilkanLink(this)" data-target="selector-kurikulum"
+        class="relative text-white cursor-pointer hover:text-blue-300">
+      KURIKULUM
+      <div id="selector-kurikulum"
+           class="absolute sm:top-10 top-16 bg-black text-white rounded-md px-4 py-2 flex flex-col gap-2 z-50 opacity-0 invisible transition duration-300 ease-out">
+           <a href="../KURIKULUM/struktur-akutansi.html" class="hover:text-blue-400">struktur akutansi dan keuagan lembaga</a>
+           <a href="../KURIKULUM/struktur-multimedia.html"  class="hover:text-blue-400">struktur multimedia</a>
+           <a href="../KURIKULUM/struktur-pemasaran.html"  class="hover:text-blue-400">struktur bisnis daring dan pemasaran</a>
+           <a href="../KURIKULUM/struktur-perkantoran.html"  class="hover:text-blue-400">struktur otomatisasi dan tata kelola perkantoran</a>
+           <a href="../KURIKULUM/struktur-perwisataan.html"  class="hover:text-blue-400">struktur usaha perjalanan wisata</a>
+      </div>
+    </h1>
+
+    <h1 id="kesiswaanIcon" onclick="tampilkanLink(this)" data-target="selector-kesiswaan"
+        class="relative text-white cursor-pointer hover:text-blue-300">
+      KESISWAAN
+      <div id="selector-kesiswaan"
+           class="absolute sm:top-10 top-16 bg-black text-white rounded-md px-4 py-2 flex flex-col gap-2 z-50 opacity-0 invisible transition duration-300 ease-out">
+           <a href="../KESISWAAN/mpk-osis.html"  class="hover:text-blue-400">MPK Osis</a>
+           <a href="../KESISWAAN/osis.html"  class="hover:text-blue-400">Osis</a>
+           <a href="../KESISWAAN/ekstrakurikuler.html"  class="hover:text-blue-400">Ekstrakulikuler</a>
+      </div>
+    </h1>
+
+    <a href="../DAFTAR GURU DAN STAFF/guru-staff.html" class="text-white hover:text-blue-300 whitespace-nowrap">
+      Data Guru dan Staff
+    </a>
+  </div>
+</aside>
+    <div class="absolute top-2 right-1 flex gap-2 justify-center ">
+  <a href="https://facebook.com" target="_blank" class="bg-blue-700 text-white w-9 h-9 flex items-center justify-center rounded-md hover:scale-110 transition">
+    <i class="fab fa-facebook-f text-xl"></i>
+  </a>
+  <a href="https://instagram.com" target="_blank" class="bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 text-white w-9 h-9 flex items-center justify-center rounded-md hover:scale-110 transition">
+    <i class="fab fa-instagram text-xl"></i>
+  </a>
+  <a href="https://youtube.com" target="_blank" class="bg-red-600 text-white w-9 h-9 flex items-center justify-center rounded-md hover:scale-110 transition">
+    <i class="fab fa-youtube text-xl"></i>
+  </a>
+</div>
+      <div class="absolute left-5 top-2 flex flex-col sm:flex-row  gap-0 sm:gap-3 -translate-y-3 sm:-translate-y-0">
+          <p id="tanggalLengkap" class="translate-y-2 text-sm sm:text-md mb-2 text-white font-semibold"></p>
+    <p id="jam" class="text-sm sm:text-md translate-y-1.5 font-saint bg-white p-1 rounded-md text-cyan-800"></p>
+      </div>
+    <div class="absolute top-16 left-0 w-full">
+      <img src="../assets/logo_smk1.jpg" class="absolute translate-x-7 right-1/2 h-16 top-3">
+      <img src="../assets/sekolahsmk.jpg" class="w-full h-72">
+      <h4 class="absolute top-24 sm:text-5xl  text-lg text-gray-100 font-bold left-1/3 hover:text-sky-400 cursor-pointer">SMK Negeri 1 Bogor</h4>
+       <h2 class="absolute top-36 sm:top-40 left-1/2 -translate-x-1/2 sm:left-1/3 sm:translate-x-0 text-xs sm:text-sm text-gray-100 font-saint scale-x-100 lg:scale-x-150 text-center sm:text-left">
+        SMK unggulan yang menghasilkan SDM bermutu dan berdaya saing tinggi
+      </h2>
+    </div>
+    </section>
+   </header>
+
+
+<!-- /////////////////////////////////////////////////////////////// -->
+<main class="max-w-7xl mx-auto px-4 py-16">
+  <div class="mt-20 sm:mt-0 relative w-full">
+    <div class="max-w-7xl mx-auto w-full bg-white p-6 rounded shadow-lg overflow-auto">
+  <h1 class="text-2xl font-bold mb-6 text-gray-700">Daftar Guru</h1>
+   <div class="mb-4">
+    <input type="text" id="searchInput" placeholder="Search Here" class="w-full md:w-1/2 px-4 py-2 border rounded shadow focus:outline-none focus:ring-2 focus:ring-blue-400" />
+  </div>
+  <table id="guruTable" class="display stripe hover w-full text-sm">
+    <thead class="bg-blue-100 text-gray-700">
+      <tr>
+        <th class="text-left px-4 py-2">NO</th>
+        <th class="text-left px-4 py-2">NAMA</th>
+        <th class="text-left px-4 py-2">JENIS KELAMIN</th>
+        <th class="text-left px-4 py-2">PENDIDIKAN</th>
+        <th class="text-left px-4 py-2">MENGAJAR</th>
+      </tr>
+      </thead>
+      <tbody id="guruBody" class="font-sans">
+<tr class="border-l border-b border-t border-r"><td class="px-4 py-2">1</td><td class="px-4 py-2">Abdul Halim Ngate, S.Pd.I</td><td class="px-4 py-2">Laki - Laki</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Pendidikan Agama Islam dan Budi Pekerti</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">2</td><td class="px-4 py-2">Aldi Ryan Maulana, S.Tr</td><td class="px-4 py-2">Laki - Laki</td><td class="px-4 py-2">D4</td><td class="px-4 py-2">Kepariwisataan, Administrasi Umum, Pengelolaan Meeting, Convergence & Exhibition</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">3</td><td class="px-4 py-2">Amalia Agam Putri, S.Ag</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Pendidikan Agama Islam dan Budi Pekerti</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">4</td><td class="px-4 py-2">Angga Triwiguna, S.Kom</td><td class="px-4 py-2">Laki - Laki</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Desain Multimedia Interaktif, Simulasi dan Komunikasi Digital, Pengolahan Citra Digital</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">5</td><td class="px-4 py-2">Arya Prawirandika, S.Kom</td><td class="px-4 py-2">Laki - Laki</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Simulasi dan Komunikasi Digital, Sistem Komputer, Pemrograman Dasar</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">6</td><td class="px-4 py-2">Atik Prihartini, S.Si</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Matematika (Umum)</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">7</td><td class="px-4 py-2">Carwi, M.Par</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S2</td><td class="px-4 py-2">Pemesanan dan Penghitungan Tarif Penerbangan, Menghitung Tarif dan Dokumen Pasasi, Pemesanan Tempat (Airlines Reservation)</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">8</td><td class="px-4 py-2">Dede Suryana, S.Pd</td><td class="px-4 py-2">Laki - Laki</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Perencanaan dan Pengelolaan Perjalanan Wisata, Perencanaan dan Pengelolaan Perjalanan</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">9</td><td class="px-4 py-2">Deni Miharja, S.Pd</td><td class="px-4 py-2">Laki - Laki</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Pendidikan Pancasila dan Kewarganegaraan, Seni Budaya</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">10</td><td class="px-4 py-2">Denny Rahman, S.Kom</td><td class="px-4 py-2">Laki - Laki</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Komputer dan Jaringan Dasar, Teknik Pengolahan Vidio, Desain Grafis Percetakan</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">11</td><td class="px-4 py-2">Dini Saptariani, S.Pd</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Bahasa Indonesia</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">12</td><td class="px-4 py-2">Drs. H. Pudji Mardjuki Achmadi</td><td class="px-4 py-2">Laki - Laki</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Matematika (Umum)</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">13</td><td class="px-4 py-2">Eli Welasari, S.E.</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Akuntansi Keuangan, Ekonomi Bisnis</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">14</td><td class="px-4 py-2">Dra. Elli Sulasteri</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Bahasa Indonesia</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">15</td><td class="px-4 py-2">Emalia Hermawati, S.Pd</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Bahasa Sunda, Bahasa Inggris</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">16</td><td class="px-4 py-2">Drs. Engkus Kusnadi</td><td class="px-4 py-2">Laki - Laki</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Produk Kreatif dan Kewirausahaan</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">17</td><td class="px-4 py-2">Dra. Esti Noormalia</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Prinsip-Prinsip Bisnis, Pengelolaan Bisnis Ritel, Komunikasi Bisnis</td></tr>  
+<tr class="border-l border-b border-r"><td class="px-4 py-2">18</td><td class="px-4 py-2">Dra. Eti Setiati, M.Pd</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S2</td><td class="px-4 py-2">Administrasi Transaksi, Administrasi Barang</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">19</td><td class="px-4 py-2">Dra. Euis Kurniawati, M.Pd</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S2</td><td class="px-4 py-2">Komputer Akuntansi</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">20</td><td class="px-4 py-2">Dra. Euis Sartika</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Pendidikan Jasmani, Olahraga, dan Kesehatan</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">21</td><td class="px-4 py-2">Dra. Euis Yeyet</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Administrasi Umum, Otomatisasi Tata Kelola Kepegawaian, Administrasi sarana dan prasarana</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">22</td><td class="px-4 py-2">Fitra Mulyadi, S.Pd.I</td><td class="px-4 py-2">Laki - Laki</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Pendidikan Agama Islam dan Budi Pekerti</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">23</td><td class="px-4 py-2">Ganjar Taufik Suhendar, S.Pd</td><td class="px-4 py-2">Laki - Laki</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Sejarah Indonesia, Bahasa Sunda</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">24</td><td class="px-4 py-2">Drs, Dr. Hilmi Siroj, M.Ag</td><td class="px-4 py-2">Laki - Laki</td><td class="px-4 py-2">S3</td><td class="px-4 py-2">Pemanduan Perjalanan Wisata</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">25</td><td class="px-4 py-2">Dra. Hindun</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Bahasa Inggris</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">26</td><td class="px-4 py-2">Ida Hernida, S.Pd, M.M.</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S2</td><td class="px-4 py-2">Bimbingan dan Konseling/Konselor (BP/BK)</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">27</td><td class="px-4 py-2">Idah Lestari, S.Pd.I</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Pendidikan Agama Islam dan Budi Pekerti</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">28</td><td class="px-4 py-2">Jaenab, S.Pd</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Ilmu Pengetahuan Alam (Terapan), Ilmu Pengetahuan Alam (IPA), Kimia</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">29</td><td class="px-4 py-2">Dra. Lanni Yualia P Rukmana</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Bahasa Sunda</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">30</td><td class="px-4 py-2">Lilies Suarsih Ismori, M.Si</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S2</td><td class="px-4 py-2">Pendidikan Jasmani, Olahraga, dan Kesehatan</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">31</td><td class="px-4 py-2">Dra. Lilis Solihat</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Bimbingan dan Konseling/Konselor (BP/BK)</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">32</td><td class="px-4 py-2">Dra. Lilis Sutiarsah</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Bahasa Inggris</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">33</td><td class="px-4 py-2">Lily Nurlaeli, S.Pd</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Kearsipan, Administrasi Kepegawaian</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">34</td><td class="px-4 py-2">Lina Fitriani, M.Si</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S2</td><td class="px-4 py-2">Matematika (Umum)</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">35</td><td class="px-4 py-2">Lina Marlina, M.Pd</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S2</td><td class="px-4 py-2">Produk Kreatif dan Kewirausahaan</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">36</td><td class="px-4 py-2">Maman Suparman, S.Pd</td><td class="px-4 py-2">Laki - Laki</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Prakarya dan Kewirausahaan, Produk Kreatif dan Kewirausahaan</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">37</td><td class="px-4 py-2">Melati Astuti, S.Pd</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Sejarah Indonesia</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">38</td><td class="px-4 py-2">Miskam Hadiyanto, S.Kom</td><td class="px-4 py-2">Laki - Laki</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Teknik Pengambilan Gambar Bergerak, Teknik Pengolahan Audio, Simulasi dan Komunikasi Digital</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">39</td><td class="px-4 py-2">Mutiara Ariani, S.Pd</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Bimbingan dan Konseling/Konselor (BP/BK)</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">40</td><td class="px-4 py-2">Nana Suhana, S.Pd</td><td class="px-4 py-2">Laki - Laki</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Seni Budaya</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">41</td><td class="px-4 py-2">Nani Maryani, S.Pd</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Pemanduan Perjalanan Wisata, Komunikasi Industri Pariwisata</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">42</td><td class="px-4 py-2">Neny Sudjana, S.Pd, M.M.Pd</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S2</td><td class="px-4 py-2">Bahasa Indonesia</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">43</td><td class="px-4 py-2">Dra. Noni Sukriyawati, B.A.</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Bimbingan dan Konseling/Konselor (BP/BK)</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">44</td><td class="px-4 py-2">Dra. Novayanti</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Administrasi Umum, Otomatisasi Tata Kelola Keuangan, Administrasi Keuangan</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">45</td><td class="px-4 py-2">Nurhasmiaty, S.Pd</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Bahasa Indonesia</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">46</td><td class="px-4 py-2">Nurrul Wardhani, S.Pd</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Bahasa Jepang, Sanitasi, Hygiene dan Keselamatan Kerja, Produk Kreatif dan Kewirausahaan</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">47</td><td class="px-4 py-2">Nurwana, S.Pd.I</td><td class="px-4 py-2">Laki - Laki</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Pendidikan Agama Islam dan Budi Pekerti</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">48</td><td class="px-4 py-2">Oja Sudija, S.Pd</td><td class="px-4 py-2">Laki - Laki</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Teknik animasi 2D dan 3D, Bahasa Inggris, Teknik Animasi 3 Dimensi</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">49</td><td class="px-4 py-2">Pipih Latifah, S.Pd</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Otomatisasi Tata Kelola Humas dan Keprotokolan, Teknologi Perkantoran, Administrasi Keuangan</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">50</td><td class="px-4 py-2">Drs. Priyo Wismantoro, M.M.</td><td class="px-4 py-2">Laki - Laki</td><td class="px-4 py-2">S2</td><td class="px-4 py-2">Akuntansi Perusahaan Dagang, Administrasi Umum, Praktikum Jasa Dagang Manfaktur</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">51</td><td class="px-4 py-2">R. Rahayu Mulyawati, S.E.</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Marketing, Penataan Produk</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">52</td><td class="px-4 py-2">Dra. Rakhmiyanti, M.Pd</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S2</td><td class="px-4 py-2">Akuntansi Perusahaan Manufaktur, Etika Profesi, Akuntansi Dasar</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">53</td><td class="px-4 py-2">Dra. Robiatul Adawiyah, M.Pd</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S2</td><td class="px-4 py-2">Matematika (Umum)</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">54</td><td class="px-4 py-2">Rohaeti Iriani, S.Pd</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Matematika (Umum)</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">55</td><td class="px-4 py-2">Roro Ani Yusetyowati, S.Pd</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Penataan Barang Dagangan, Perencanaan Bisnis, Komunikasi Bisnis</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">56</td><td class="px-4 py-2">Drs. Samsu</td><td class="px-4 py-2">Laki - Laki</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Pelayanan Penjualan, Administrasi Umum, Komunikasi Bisnis, Pengetahuan Produk</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">57</td><td class="px-4 py-2">Dra. Saptorini Nugraheni</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Otomatisasi Tata Kelola Sarana dan Prasarana, Administrasi sarana dan prasarana</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">58</td><td class="px-4 py-2">Silatul Hanafiah, S.Pd</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Bahasa Indonesia</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">59</td><td class="px-4 py-2">Sintha Dewi, S.Pd</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Korespondensi, Otomatisasi Tata Kelola Humas dan Keprotokolan</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">60</td><td class="px-4 py-2">Siti Rukoyah, S.Pd</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Bahasa Sunda</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">61</td><td class="px-4 py-2">Dra. Sofiatul Marifah</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Pendidikan Pancasila dan Kewarganegaraan</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">62</td><td class="px-4 py-2">Dra. Sri Dewi Muliyati</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Bahasa Inggris</td></tr>
+<tr class="border-l border-b border-r" ><td class="px-4 py-2">63</td><td class="px-4 py-2">Dra. Sri Handayani</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Pendidikan Pancasila dan Kewarganegaraan</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">64</td><td class="px-4 py-2">Dra. Sri Nastiti</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Ekonomi Bisnis, Administrasi Humas dan Keprotokolan</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">65</td><td class="px-4 py-2">Sukardi, S.Pd</td><td class="px-4 py-2">Laki - Laki</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Pendidikan Jasmani, Olahraga, dan Kesehatan</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">66</td><td class="px-4 py-2">Drs. Sumardi Wiguna</td><td class="px-4 py-2">Laki - Laki</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Ekonomi Bisnis, Bisnis Online</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">67</td><td class="px-4 py-2">Supiansur, S.Pd</td><td class="px-4 py-2">Laki - Laki</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Pendidikan Pancasila dan Kewarganegaraan, Dasar Desain Grafis, Produk Kreatif dan Kewirausahaan, Desain Grafis Percetakan</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">68</td><td class="px-4 py-2">Syarif Hidayatulloh, M.Pd</td><td class="px-4 py-2">Laki - Laki</td><td class="px-4 py-2">S2</td><td class="px-4 py-2">Fisika, Ilmu Pengetahuan Alam (IPA)</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">69</td><td class="px-4 py-2">Tuti Amalia, S.E.</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Administrasi Pajak, Perbankan Dasar, Produk Kreatif dan Kewirausahaan</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">70</td><td class="px-4 py-2">Yaumil Khairat, M.E.I</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S2</td><td class="px-4 py-2">Prakarya dan Kewirausahaan, Produk Kreatif dan Kewirausahaan</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">71</td><td class="px-4 py-2">Yoesi Ika Fiandarti, S.Pd</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Bimbingan dan Konseling/Konselor (BP/BK)</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">72</td><td class="px-4 py-2">Yuli Hartati, S.Kom</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Kerja Proyek Multimedia, Teknik animasi 2D dan 3D</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">73</td><td class="px-4 py-2">Yulia Resnawati, S.Pd</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Matematika (Umum)</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">74</td><td class="px-4 py-2">Yusuf Husni, Se, S.E.</td><td class="px-4 py-2">Laki - Laki</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Bahasa Sunda</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">75</td><td class="px-4 py-2">Yusup Saepuloh, S.Pd</td><td class="px-4 py-2">Laki - Laki</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Praktikum Akuntansi Lembaga/Instansi Pemerintah, Aplikasi Pengolah Angka/Spreadsheet</td></tr>
+<tr class="border-l border-b border-r"><td class="px-4 py-2">76</td><td class="px-4 py-2">Edwina, S.Tr Par</td><td class="px-4 py-2">Perempuan</td><td class="px-4 py-2">S1</td><td class="px-4 py-2">Sanitasi, Produk Kreatif dan Kewirausahaan</td></tr>
+
+
+    
+    
+        <!-- Tambahkan baris lainnya -->
+      </tbody>
+    </table>
+    
+
+  </div>
+  </div>
+</main>
+
+<footer class="bg-[#0e0b2b] text-white py-12">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="flex flex-col items-center md:items-start text-center md:text-left">
+      <img src="../assets/logo_smk1.jpg" alt="Logo SMKN 1 Bogor" class="w-24 h-24 object-contain mb-4" />
+      <h2 class="text-3xl font-extrabold mb-2">SMK Negeri 1 Bogor</h2>
+      <p class="text-sm text-gray-400 leading-relaxed mb-6">
+        SMK Unggulan yang Menghasilkan SDM Bermutu dan Berdaya Saing Tinggi
+      </p>
+
+      <div class="text-base text-gray-300 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-2">
+        <p><strong class="text-orange-300">NPSN:</strong> 20220273</p>
+        <p><strong class="text-orange-300">Kode Pos:</strong> 16161</p>
+        <p><strong class="text-orange-300">Alamat:</strong> Jl. Heulang No. 6</p>
+        <p><strong class="text-orange-300">Telepon:</strong> 0251 - 8334384</p>
+        <p><strong class="text-orange-300">KAB./KOTA:</strong> Kota Bogor</p>
+        <p><strong class="text-orange-300">Email:</strong> info@smkn1bogor.sch.id</p>
+      </div>
+    </div>
+
+    <div class="flex flex-col items-center md:items-start text-center md:text-left">
+      <h3 class="text-xl font-semibold mb-4 text-orange-300">Navigasi Cepat</h3>
+      <ul class="space-y-2 text-gray-300">
+        <li><a href="#" class="hover:text-white transition-colors duration-300">Beranda</a></li>
+        <li><a href="#" class="hover:text-white transition-colors duration-300">Tentang Kami</a></li>
+        <li><a href="#" class="hover:text-white transition-colors duration-300">Program Keahlian</a></li>
+        <li><a href="#" class="hover:text-white transition-colors duration-300">Berita</a></li>
+        <li><a href="#" class="hover:text-white transition-colors duration-300">Kontak</a></li>
+      </ul>
+    </div>
+
+    <div class="flex flex-col items-center md:items-start text-center md:text-left">
+      <h3 class="text-xl font-semibold mb-4 text-orange-300">Ikuti Kami</h3>
+      <div class="flex space-x-4 mb-6">
+        <a href="#" class="text-blue-500 hover:text-blue-400 text-3xl transition-colors duration-300" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="text-pink-500 hover:text-pink-400 text-3xl transition-colors duration-300" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" class="text-red-600 hover:text-red-500 text-3xl transition-colors duration-300" aria-label="YouTube">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+      <h3 class="text-xl font-semibold mb-4 text-orange-300">Lokasi Kami</h3>
+      <div class="w-full h-40 bg-gray-700 rounded-lg overflow-hidden">
+        <iframe
+        class="md:w-auto"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.2687508685164!2d106.79090631477124!3d-6.611109995221004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c5e31c7d2429%3A0xc3c9f28c2e6f2b0!2sSMK%20Negeri%201%20Bogor!5e0!3m2!1sid!2sid!4v1678252077987!5m2!1sid!2sid"
+          width="100%"
+          height="100%"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-12 pt-6 border-t border-gray-700 text-center text-sm text-gray-400">
+    <p>
+      © Copyright - Tim ICT SMK Negeri 1 Bogor 2025 |
+      <span class="font-semibold">Design By :</span>
+      <a href="#" class="underline text-blue-400 hover:text-blue-600">The Letter</a> |
+      <span class="font-bold">All Rights reserved.</span>
+    </p>
+  </div>
+</footer>
+
+<script>
+
+    <!--TABLE SCRIPPT-->
+       document.getElementById("searchInput").addEventListener("keyup", function () {
+    const filter = this.value.toLowerCase();
+    const rows = document.querySelectorAll("#guruBody tr");
+
+    rows.forEach(row => {
+      const text = row.innerText.toLowerCase();
+      if (text.includes(filter)) {
+        row.style.display = "";
+      } else {
+        row.style.display = "none";
+      }
+    });
+  });
+    /////
+     function updateTime() {
+      const hariList = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+      const bulanList = [
+        'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+        'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+      ];
+
+      const now = new Date();
+
+      const hari = hariList[now.getDay()];
+      const tanggal = now.getDate();
+      const bulan = bulanList[now.getMonth()];
+      const tahun = now.getFullYear();
+
+      const jam = now.getHours().toString().padStart(2, '0');
+      const menit = now.getMinutes().toString().padStart(2, '0');
+      const detik = now.getSeconds().toString().padStart(2, '0');
+      const ampm = jam >= 12 ? 'PM' : 'AM';
+
+      document.getElementById('tanggalLengkap').textContent = `${hari}, ${tanggal} ${bulan} ${tahun}`;
+       document.getElementById('jam').textContent = `${jam}:${menit}:${detik} ${ampm}`;
+    }
+
+    
+    setInterval(updateTime, 1000);
+    updateTime(); 
+
+     feather.replace();
+
+    
+
+    function tampilkanLink(el) {
+    const targetId = el.getAttribute("data-target");
+    const selector = document.getElementById(targetId);
+
+    // Tutup semua selector terlebih dahulu
+    document.querySelectorAll("[id^='selector-']").forEach(s => {
+      if (s !== selector) {
+        s.classList.add("opacity-0", "invisible", "scale-95");
+        s.classList.remove("opacity-100", "visible", "scale-100");
+      }
+    });
+
+    const isHidden = selector.classList.contains("opacity-0");
+
+    if (isHidden) {
+      selector.classList.remove("opacity-0", "invisible", "scale-95");
+      selector.classList.add("opacity-100", "visible", "scale-100");
+    } else {
+      selector.classList.add("opacity-0", "invisible", "scale-95");
+      selector.classList.remove("opacity-100", "visible", "scale-100");
+    }
+  }
+
+  // Opsional: klik di luar untuk menutup semua selector
+  document.addEventListener("click", function (e) {
+    const icons = document.querySelectorAll("h1[data-target]");
+    let clickedInside = false;
+
+    icons.forEach(icon => {
+      if (icon.contains(e.target)) {
+        clickedInside = true;
+      }
+    });
+
+    if (!clickedInside) {
+      document.querySelectorAll("[id^='selector-']").forEach(s => {
+        s.classList.add("opacity-0", "invisible", "scale-95");
+        s.classList.remove("opacity-100", "visible", "scale-100");
+      });
+    }
+  });
+  </script>
+  </body>
+</html>
